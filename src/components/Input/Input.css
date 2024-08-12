@@ -1,0 +1,45 @@
+.input-token-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-token-and-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#token-input {
+    width: 100%;
+    padding-left: 5px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 2px;
+    font-size: 15px;
+    resize: none;
+    transition: 0.3s;
+}
+
+#token-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(93, 173, 226, 0.795);
+}
+
+.token-clear-button {
+    background-image: url(../../../public/clear.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 30px; 
+    height: 25px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.token-clear-button:hover {
+    background-image: url(../../../public/clear-hover.svg);
+}

@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Roboto-medium";
+  src: url("../../fonsts/Roboto-Medium.ttf") format("truetype");
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #1b2631;
+  font-family: "Roboto-medium", "Arial", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  width: 500px;
+  padding: 20px 10px 5px 10px;
+  box-shadow: 0 0 48px 0 rgba(93, 173, 226, 0.795);
+  border-radius: 10px;
+  background: #17202a;
+  color: #eaecee;
+}
