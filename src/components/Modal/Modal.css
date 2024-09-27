@@ -1,0 +1,44 @@
+.modal-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding: 20px 10px 5px 10px;
+    box-shadow: 0 0 48px 0 rgba(93, 173, 226, 0.795);
+    border-radius: 10px;
+    background: #17202a;
+    color: #eaecee;
+}
+
+.radiobutton-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+
+.close-button {
+    background-image: url(../../../public/close.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 30px; 
+    height: 25px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: auto;
+}
+
+.close-button:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    background-image: url(../../../public/close-hover.svg);
+}
