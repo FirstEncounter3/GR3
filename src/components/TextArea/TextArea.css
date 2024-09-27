@@ -47,3 +47,9 @@
 .buttons:hover {
     box-shadow: 0 0 10px rgba(93, 173, 226, 0.795);
 }
+
+.json-content {
+    overflow: auto;
+    max-height: 500px;
+    margin: 10px 0;
+}
