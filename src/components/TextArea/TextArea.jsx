@@ -1,9 +1,12 @@
 import React from "react";
 import { JSONTree } from "react-json-tree";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
 
-import { Modal } from "../Modal/Modal"; 
+import Modal from "../Modal/Modal"; 
+import TextAreaButtons from "../TextAreaButtons/TextAreaButtons";
+import { textAreaClear, decodeJson, saveAsHandler } from "./textAreaUtils";
 
 import "./TextArea.css";
 
@@ -12,62 +15,20 @@ function TextArea() {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [formattedJson, setFormattedJson] = React.useState(null);
 
-  const TextAreaClear = () => {
-    setTextAreaValue("");
-    setFormattedJson(null);
-  };
+  const handleClear = () => {
+    textAreaClear(setTextAreaValue, setFormattedJson);
+  }
 
-  const saveASHandler = async () => {
-    try {
-      if (textAreaValue) {
-        const fileHandle = await showSaveFilePicker({
-          suggestedName: "magic_json.json",
-          types: [
-            {
-              description: "JSON",
-              accept: {
-                "application/json": [".json"],
-              },
-            },
-          ],
-        });
-
-        const writableStream = await fileHandle.createWritable();
-        const json = JSON.parse(textAreaValue);
-        await writableStream.write(JSON.stringify(json, null, 2));
-        await writableStream.close();
-
-        toast.success("Файл успешно сохранен!", {
-          position: "top-center",
-        });
-      }
-    } catch (error) {
-      console.error("Error saving file:", error);
-
-      toast.error("Ошибка при сохранении файла!", {
-        position: "top-center",
-      });
-    }
-  };
+  const handleSaveAs = async () => {
+    await saveAsHandler(textAreaValue, setFormattedJson);
+  }
 
   const inputHandler = (e) => {
     setTextAreaValue(e.target.value);
   };
 
-  const decodeJson = () => {
-    try {
-      setTextAreaValue('');
-      const json = JSON.parse(textAreaValue);
-      setFormattedJson(json);
-      setTextAreaValue(JSON.stringify(json, null, 2));
-
-    } catch (error) {
-      console.error("Error decoding JSON:", error);
-
-      toast.error("Ошибка при декодировании JSON" + error, {
-        position: "top-center",
-      });
-    }
+  const handleDecode = () => {
+    decodeJson(textAreaValue, setFormattedJson, setTextAreaValue);
   }
 
   return (
@@ -90,16 +51,12 @@ function TextArea() {
             </div>
           </div>
         )}
-        <div className="main-buttons-wrapper">
-          <button className="buttons" onClick={() => setIsModalOpen(true)}>Get</button>
-          <button className="buttons" onClick={saveASHandler}>
-            Save as
-          </button>
-          <button className="buttons" onClick={TextAreaClear}>
-            Clear
-          </button>
-          <button className="buttons" onClick={decodeJson}>Decode</button>
-        </div>
+        <TextAreaButtons
+          onGet={() => setIsModalOpen(true)}
+          onSaveAs={handleSaveAs}
+          onClear={handleClear}
+          onDecode={handleDecode}
+        />
       </div>
       <Modal isOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <ToastContainer theme="dark" />
