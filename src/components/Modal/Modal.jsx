@@ -99,3 +99,5 @@ export const Modal = ({ isOpen, setIsModalOpen }) => {
         </div>
     )
 }
+
+export default Modal;
