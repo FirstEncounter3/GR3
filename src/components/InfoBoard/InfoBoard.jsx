@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 
 import './InfoBoard.css'
 
-function InfoBoard() {
+const InfoBoard = () => {
   const [dots, setDots] = useState('...')
   const [color, setColor] = useState('#28B463')
 
@@ -32,4 +32,4 @@ function InfoBoard() {
   )
 }
 
-export default InfoBoard
+export default InfoBoard;

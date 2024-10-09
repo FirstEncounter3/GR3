@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './Modal.css'
 
-export const Modal = ({ isOpen, setIsModalOpen }) => {
+const Modal = ({ isOpen, setIsModalOpen }) => {
     const [selectedOption, setSelectedOption] = useState('receipts');
 
     if (!isOpen) return null;

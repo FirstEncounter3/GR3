@@ -10,7 +10,7 @@ import { textAreaClear, decodeJson, saveAsHandler } from "./textAreaUtils";
 
 import "./TextArea.css";
 
-function TextArea() {
+const TextArea = () => {
   const [textAreaValue, setTextAreaValue] = React.useState("");
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const [formattedJson, setFormattedJson] = React.useState(null);

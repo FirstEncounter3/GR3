@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 import './Input.css'
 
-function Input() {
+const Input = () => {
     const [tokenValue, setTokenValue] = useState('');
     const clearHandler = () => {
         setTokenValue('');
@@ -23,4 +23,4 @@ function Input() {
   )
 }
 
-export default Input
+export default Input;
