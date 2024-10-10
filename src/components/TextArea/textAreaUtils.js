@@ -1,6 +1,7 @@
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const toastPosition = "top-center";
+import { showToast, showToastError } from "../../services/toastOptions";
 
 const jsonParseDecoder = (value) => {
     const json = JSON.parse(value);
@@ -10,7 +11,7 @@ const jsonParseDecoder = (value) => {
 export const textAreaClear = (setTextAreaValue, setFormattedJson) => {
     setTextAreaValue("");
     setFormattedJson(null);
-    toast.success("Поле очищено", {position: toastPosition,});
+    showToast("Поле очищено");
   };
 
 export const decodeJson = (textAreaValue, setFormattedJson, setTextAreaValue) => {
@@ -18,10 +19,10 @@ export const decodeJson = (textAreaValue, setFormattedJson, setTextAreaValue) =>
         const decodeJson = jsonParseDecoder(textAreaValue);
         setFormattedJson(JSON.parse(textAreaValue));
         setTextAreaValue(decodeJson);
-        toast.success("JSON декодирован", {position: toastPosition,});
+        showToast("JSON декодирован");
     } catch (error) {
         console.error("Error decoding JSON:", error);
-        toast.error("Ошибка при декодировании JSON" + error, {position: toastPosition,});
+        showToastError("Ошибка при декодировании JSON: " + error);
     }
 }
 
@@ -45,16 +46,11 @@ export const saveAsHandler = async (textAreaValue, setFormattedJson) => {
         setFormattedJson(JSON.parse(textAreaValue));
         await writableStream.write(decodeJson);
         await writableStream.close();
-
-        toast.success("Файл успешно сохранен!", {
-          position: toastPosition,
-        });
+        showToast("Файл сохранен");
       }
     } catch (error) {
       console.error("Error saving file:", error);
 
-      toast.error("Ошибка при сохранении файла!", {
-        position: toastPosition,
-      });
+      showToastError("Ошибка при сохранении файла: " + error);
     }
   };
