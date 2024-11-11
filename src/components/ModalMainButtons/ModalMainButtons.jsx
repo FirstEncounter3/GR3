@@ -5,8 +5,8 @@ import './ModalMainButtons.css'
 const ModalMainButtons = () => {
     return (
         <div className='main-button-wrapper'>
-            <button className='make-request-button'>Ok</button>
-            <button className='retun-button'>previous</button>
+            <button className='buttons' title='Выполнить запрос с указанными параметрами'>Ok</button>
+            <button className='buttons' title='Вернуть параметры предыдущего успешного запроса'>previous</button>
         </div>
     )
 }
