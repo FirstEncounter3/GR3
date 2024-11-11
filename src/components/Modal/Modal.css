@@ -3,14 +3,18 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 600px;
-    height: 300px;
+    width: 500px;
+    height: 400px;
     display: flex;
     flex-direction: column;
-    width: 500px;
     padding: 10px;
     box-shadow: 0 0 48px 0 rgba(93, 173, 226, 0.795);
     border-radius: 10px;
     background: #17202a;
     color: #eaecee;
+}
+
+.select-input {
+    margin: 5px 0 5px 0;
+    width: 99%;
 }
