@@ -6,7 +6,7 @@ const ModalDocTypeSelector = () => {
     return (
         <div className='doc-type-wrapper'>
             <label for="doc-type">Тип документа</label>
-            <select name="doc-type" id="doc-type">
+            <select name="doc-type" id="doc-type" className='select-input'>
                 <option value="ACCEPT">ACCEPT</option>
                 <option value="INVENTORY">INVENTORY</option>
                 <option value="REVALUATION">REVALUATION</option>
