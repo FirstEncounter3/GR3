@@ -5,8 +5,8 @@ import './ModalFastTimeButtons.css'
 const ModalFastTimeButtons = () => {
     return (
         <div className='fast-date-buttons-wrapper'>
-            <button className='fast-date-button'>Сегодня</button>
-            <button className='fast-date-button'>Вчера</button>
+            <button className='buttons' title='Установить сегодняшнюю дату'>Сегодня</button>
+            <button className='buttons' title='Установить вчерашнюю дату'>Вчера</button>
         </div>
     )
 }
