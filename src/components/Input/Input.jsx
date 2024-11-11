@@ -17,7 +17,7 @@ const Input = () => {
         <label htmlFor='token-input' className='label-token-input'>Токен приложения*</label>
         <div className='input-token-and-button'>
             <input type="text" id='token-input' placeholder='00000000-0000-0000-0000-000000000000' value={tokenValue} onChange={inputHandler}/>
-            <button className='token-clear-button' onClick={clearHandler}></button>
+            <button className='token-clear-button' title='Очистить содержимое поля' onClick={clearHandler}></button>
         </div>
     </div>
   )
