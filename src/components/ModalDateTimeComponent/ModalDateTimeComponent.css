@@ -1,0 +1,18 @@
+.label-and-calendar-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-and-time {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-input-date {
+    margin: 5px 0 5px 0;
+    width: 90%;
+}
+
+.select-input-seconds {
+    width: 8%;
+}
